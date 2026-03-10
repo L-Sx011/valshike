@@ -1,50 +1,78 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="light">
 <head>
-    <!-- МЕТА-ИНФОРМАЦИЯ (не трогай, кроме отмеченных мест) -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ОПИСАНИЕ_ТВОЕГО_САЙТА_ДЛЯ_ПОИСКОВИКОВ">
     
-    <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- 🔧 ИЗМЕНИ: Название сайта (отображается во вкладке браузера)    -->
-    <!-- ═══════════════════════════════════════════════════════════════ -->
-    <title>Название твоего проекта</title>
+    <!-- 🔧 ИЗМЕНИ: SEO информация -->
+    <meta name="description" content="Походы и туры на Камчатку. Восхождения на вулканы, сплавы, путешествия по природным паркам.">
+    <meta name="keywords" content="Камчатка, походы, туры, вулканы, Толбачик, Ключевская сопка">
     
-    <!-- Подключение бесплатного шрифта Google (безопасно, без авторских прав) -->
+    <!-- 🔧 ИЗМЕНИ: Название сайта -->
+    <title>Походы на Камчатку | Туры и восхождения на вулканы</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Походы на Камчатку">
+    <meta property="og:description" content="Авторские туры на Камчатку. Вулканы, дикая природа, незабываемые приключения.">
+    <meta property="og:image" content="images/hero-kamchatka.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Подключение стилей -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- ШАПКА САЙТА (Header)                                            -->
+    <!-- ШАПКА                                                           -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <header class="header">
-        <div class="container header-content">
+    <header class="header" id="header">
+        <div class="container header-container">
             
-            <!-- 🔧 ИЗМЕНИ: Путь к логотипу и название -->
+            <!-- 🔧 ИЗМЕНИ: Логотип -->
             <a href="#" class="logo">
-                <img src="images/logo.png" alt="Логотип" class="logo-image">
-                <span class="logo-text">НАЗВАНИЕ</span>
+                <img src="images/logo.svg" alt="Логотип" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-name">КАМЧАТКА</span>
+                    <span class="logo-tagline">походы и туры</span>
+                </div>
             </a>
             
-            <!-- Меню навигации -->
-            <nav class="nav">
+            <nav class="nav" id="nav">
                 <ul class="nav-list">
-                    <!-- 🔧 ИЗМЕНИ: Названия пунктов меню -->
                     <li><a href="#home" class="nav-link">Главная</a></li>
-                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#tour" class="nav-link">Тур</a></li>
+                    <li><a href="#program" class="nav-link">Программа</a></li>
                     <li><a href="#gallery" class="nav-link">Галерея</a></li>
-                    <li><a href="#contact" class="nav-link">Контакты</a></li>
+                    <li><a href="#faq" class="nav-link">FAQ</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
                 </ul>
             </nav>
             
-            <!-- Кнопка мобильного меню (появляется на телефонах) -->
-            <button class="mobile-menu-btn" aria-label="Открыть меню">
+            <div class="header-actions">
+                <!-- Переключатель темы -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <svg class="theme-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="theme-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                
+                <!-- 🔧 ИЗМЕНИ: Телефон -->
+                <a href="tel:+79001234567" class="header-phone">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    <span>+7 (900) 123-45-67</span>
+                </a>
+            </div>
+            
+            <button class="burger" id="burger" aria-label="Меню">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -53,272 +81,1083 @@
     </header>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- ГЛАВНЫЙ ЭКРАН (Hero Section)                                    -->
+    <!-- HERO                                                            -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <!-- 🔧 ИЗМЕНИ: Главное фото -->
+            <img src="images/hero-kamchatka.jpg" alt="Вулканы Камчатки" class="hero-bg-img">
+        </div>
         <div class="hero-overlay"></div>
+        
         <div class="container hero-content">
-            
-            <!-- 🔧 ИЗМЕНИ: Главный заголовок -->
+            <!-- 🔧 ИЗМЕНИ: Заголовок -->
             <h1 class="hero-title animate-on-scroll">
-                Добро пожаловать в<br>
-                <span class="highlight">Название проекта</span>
+                Покорите вулканы
+                <span class="hero-highlight">Камчатки</span>
             </h1>
             
-            <!-- 🔧 ИЗМЕНИ: Подзаголовок/описание -->
+            <!-- 🔧 ИЗМЕНИ: Подзаголовок -->
             <p class="hero-subtitle animate-on-scroll">
-                Здесь напиши краткое описание твоего проекта. 
-                Это первое, что увидят посетители, поэтому сделай 
-                его интересным и запоминающимся.
+                Авторские походы по самым величественным местам России. 
+                Вулканы, гейзеры, дикая природа и незабываемые приключения.
             </p>
             
-            <!-- 🔧 ИЗМЕНИ: Текст кнопки -->
-            <a href="#about" class="btn btn-primary animate-on-scroll">
-                Узнать больше
-            </a>
+            <div class="hero-features animate-on-scroll">
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Восхождения на вулканы</span>
+                </div>
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span>Дикая природа</span>
+                </div>
+                <div class="hero-feature">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/>
+                        <line x1="4" y1="22" x2="4" y2="15"/>
+                    </svg>
+                    <span>Сплавы по рекам</span>
+                </div>
+            </div>
+            
+            <div class="hero-buttons animate-on-scroll">
+                <a href="#tour" class="btn btn-primary btn-lg">Смотреть тур</a>
+                <a href="#contacts" class="btn btn-outline btn-lg">Связаться с нами</a>
+            </div>
         </div>
         
-        <!-- Анимированная стрелка вниз -->
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+        <div class="hero-scroll">
+            <span>Листайте</span>
+            <div class="hero-scroll-line"></div>
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- РАЗДЕЛ "О НАС" (About Section)                                  -->
+    <!-- ПРЕИМУЩЕСТВА                                                    -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <section id="about" class="about">
+    <section class="advantages">
         <div class="container">
-            
-            <!-- 🔧 ИЗМЕНИ: Заголовок раздела -->
-            <h2 class="section-title animate-on-scroll">О нашем проекте</h2>
-            
-            <div class="about-grid">
-                <!-- Левая колонка с текстом -->
-                <div class="about-text animate-on-scroll">
-                    
-                    <!-- 🔧 ИЗМЕНИ: Весь текст ниже -->
-                    <p>
-                        Здесь напиши подробное описание твоего проекта. 
-                        Расскажи, чем ты занимаешься, какие у тебя цели 
-                        и почему это важно.
-                    </p>
-                    <p>
-                        Можешь добавить второй абзац с дополнительной информацией.
-                        Расскажи историю создания или особенности проекта.
-                    </p>
-                    <p>
-                        И третий абзац, если нужно. Чем больше полезной информации,
-                        тем лучше для посетителей.
-                    </p>
+            <div class="advantages-grid">
+                
+                <!-- 🔧 ИЗМЕНИ: Преимущества -->
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-title">10+ лет опыта</h3>
+                    <p class="advantage-text">Проводим походы с 2014 года, знаем каждую тропу</p>
                 </div>
                 
-                <!-- Правая колонка с карточками преимуществ -->
-                <div class="about-features">
-                    
-                    <!-- 🔧 ИЗМЕНИ: Карточки с преимуществами -->
-                    <!-- Карточка 1 -->
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">✨</div>
-                        <h3 class="feature-title">Преимущество 1</h3>
-                        <p class="feature-text">Краткое описание первого преимущества вашего проекта.</p>
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
                     </div>
-                    
-                    <!-- Карточка 2 -->
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">🚀</div>
-                        <h3 class="feature-title">Преимущество 2</h3>
-                        <p class="feature-text">Краткое описание второго преимущества вашего проекта.</p>
-                    </div>
-                    
-                    <!-- Карточка 3 -->
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">💡</div>
-                        <h3 class="feature-title">Преимущество 3</h3>
-                        <p class="feature-text">Краткое описание третьего преимущества вашего проекта.</p>
-                    </div>
-                    
-                    <!-- Карточка 4 -->
-                    <div class="feature-card animate-on-scroll">
-                        <div class="feature-icon">🎯</div>
-                        <h3 class="feature-title">Преимущество 4</h3>
-                        <p class="feature-text">Краткое описание четвёртого преимущества вашего проекта.</p>
-                    </div>
+                    <h3 class="advantage-title">Малые группы</h3>
+                    <p class="advantage-text">От 6 до 25 человек — внимание каждому участнику</p>
                 </div>
+                
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-title">Безопасность</h3>
+                    <p class="advantage-text">Сертифицированные гиды, спутниковая связь</p>
+                </div>
+                
+                <div class="advantage-card animate-on-scroll">
+                    <div class="advantage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <h3 class="advantage-title">500+ походов</h3>
+                    <p class="advantage-text">Сотни довольных туристов и положительных отзывов</p>
+                </div>
+                
             </div>
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- РАЗДЕЛ "ГАЛЕРЕЯ" (Gallery Section)                              -->
+    <!-- ТУР: ОГНЕННАЯ КАМЧАТКА                                          -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <section id="gallery" class="gallery">
+    <section class="tour" id="tour">
         <div class="container">
             
-            <!-- 🔧 ИЗМЕНИ: Заголовок галереи -->
-            <h2 class="section-title animate-on-scroll">Наши работы</h2>
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Наш тур</span>
+                <h2 class="section-title">Огненная Камчатка</h2>
+                <p class="section-subtitle">Природный парк «Ключевской» — поход вокруг Толбачиков с восхождением</p>
+            </div>
             
-            <!-- 🔧 ИЗМЕНИ: Подзаголовок галереи -->
-            <p class="section-subtitle animate-on-scroll">
-                Посмотрите на то, что мы создаём
-            </p>
+            <div class="tour-hero animate-on-scroll">
+                <!-- 🔧 ИЗМЕНИ: Главное фото тура -->
+                <img src="images/tour-1/main.jpg" alt="Огненная Камчатка" class="tour-hero-img">
+                <div class="tour-hero-overlay">
+                    <div class="tour-hero-stats">
+                        <div class="tour-hero-stat">
+                            <span class="stat-value">13</span>
+                            <span class="stat-label">дней</span>
+                        </div>
+                        <div class="tour-hero-stat">
+                            <span class="stat-value">120</span>
+                            <span class="stat-label">км пешком</span>
+                        </div>
+                        <div class="tour-hero-stat">
+                            <span class="stat-value">3080</span>
+                            <span class="stat-label">м высота</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-badge">Сложный маршрут</div>
+            </div>
             
+            <!-- Вкладки тура -->
+            <div class="tour-tabs">
+                <button class="tour-tab active" data-tab="info">Информация</button>
+                <button class="tour-tab" data-tab="route">Маршрут</button>
+                <button class="tour-tab" data-tab="dates">Даты и цены</button>
+                <button class="tour-tab" data-tab="included">Что включено</button>
+            </div>
+            
+            <!-- Контент вкладок -->
+            <div class="tour-tabs-content">
+                
+                <!-- Вкладка: Информация -->
+                <div class="tour-tab-content active" id="tab-info">
+                    <div class="tour-info-grid">
+                        <div class="tour-description">
+                            <p>
+                                Приглашаем вас в путешествие по самому величественному району Камчатки — 
+                                территории природного парка «Ключевской», где пейзажи достойны обложек 
+                                лучших географических журналов мира. Здесь возвышается самый большой 
+                                действующий вулкан Евразии — <strong>Ключевская сопка (4835 м)</strong>, 
+                                окружённый не менее впечатляющими вулканами-исполинами.
+                            </p>
+                            
+                            <p>
+                                За время похода мы пройдём немало километров по удивительно разнообразным 
+                                ландшафтам: от причудливых застывших лавовых потоков до действующих кратеров, 
+                                по бескрайней тундре с пасущимися медведями и живописным полянам, усыпанным 
+                                ягодами и грибами. Мы преодолеем перевалы с захватывающими панорамами и 
+                                совершим <strong>восхождение на вулкан Плоский Толбачик</strong>, где 
+                                заглянем прямо в 400-метровый кратер.
+                            </p>
+                            
+                            <p>
+                                Кроме того, нас ждёт сплав по одной из самых живописных рек полуострова, 
+                                где каждый сможет попробовать свои силы в ловле рыбы. А завершим наше 
+                                путешествие незабываемым вечером у костра на берегу Тихого океана.
+                            </p>
+                            
+                            <div class="tour-info-block warning">
+                                <div class="info-block-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                        <line x1="12" y1="9" x2="12" y2="13"/>
+                                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                                    </svg>
+                                </div>
+                                <div class="info-block-content">
+                                    <h4>Важная информация</h4>
+                                    <p>
+                                        Поход требует хорошей физической подготовки. Участникам предстоит 
+                                        проходить до 20 км в день с рюкзаком по горной местности в любую погоду. 
+                                        Желателен опыт горных походов. На маршруте высока вероятность встречи 
+                                        с камчатскими медведями.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="tour-info-block weather">
+                                <div class="info-block-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                                    </svg>
+                                </div>
+                                <div class="info-block-content">
+                                    <h4>Погодные условия</h4>
+                                    <p>
+                                        Камчатка известна непредсказуемой погодой. Будьте готовы к шквалистому 
+                                        ветру, затяжным дождям, температуре около +10°C и туману в горах. 
+                                        Впрочем, бывают и солнечные недели с температурой до +30°C.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tour-specs">
+                            <h4>Характеристики</h4>
+                            <ul class="specs-list">
+                                <li>
+                                    <span class="spec-label">Длительность</span>
+                                    <span class="spec-value">13 дней</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Расстояние</span>
+                                    <span class="spec-value">120 км пешком</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Сложность</span>
+                                    <span class="spec-value spec-hard">Сложный</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Группа</span>
+                                    <span class="spec-value">6–25 человек</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Возраст</span>
+                                    <span class="spec-value">от 16 лет</span>
+                                </li>
+                                <li>
+                                    <span class="spec-label">Регион</span>
+                                    <span class="spec-value">Камчатка</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Вкладка: Маршрут -->
+                <div class="tour-tab-content" id="tab-route">
+                    <div class="route-visual">
+                        <div class="route-line"></div>
+                        
+                        <div class="route-point start">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Елизово</span>
+                                <span class="route-desc">Встреча группы</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Река Быстрая</span>
+                                <span class="route-desc">Сплав на рафтах</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Козыревск</span>
+                                <span class="route-desc">База отдыха</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point highlight">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Плоский Толбачик</span>
+                                <span class="route-desc">Восхождение 3080 м</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Перевал Толуд</span>
+                                <span class="route-desc">1470 м</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Марсово поле</span>
+                                <span class="route-desc">Инопланетные пейзажи</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Вулкан Безымянный</span>
+                                <span class="route-desc">Один из самых активных</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Гора Поленница</span>
+                                <span class="route-desc">Памятник природы</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Поляна эдельвейсов</span>
+                                <span class="route-desc">Живописная стоянка</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Бараньи скалы</span>
+                                <span class="route-desc">Каньон реки</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Тихий океан</span>
+                                <span class="route-desc">Халактырский пляж</span>
+                            </div>
+                        </div>
+                        
+                        <div class="route-point end">
+                            <div class="route-dot"></div>
+                            <div class="route-info">
+                                <span class="route-name">Петропавловск-Камчатский</span>
+                                <span class="route-desc">Завершение</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Вкладка: Даты и цены -->
+                <div class="tour-tab-content" id="tab-dates">
+                    <div class="dates-grid">
+                        <div class="dates-list">
+                            <h3>Ближайшие даты</h3>
+                            
+                            <!-- 🔧 ИЗМЕНИ: Даты и цены -->
+                            <div class="date-card">
+                                <div class="date-period">
+                                    <span class="date-month">Июнь 2026</span>
+                                    <span class="date-days">15.06 – 27.06</span>
+                                </div>
+                                <div class="date-status available">Есть места</div>
+                                <div class="date-price">85 000 ₽</div>
+                            </div>
+                            
+                            <div class="date-card">
+                                <div class="date-period">
+                                    <span class="date-month">Июнь–Июль 2026</span>
+                                    <span class="date-days">29.06 – 11.07</span>
+                                </div>
+                                <div class="date-status available">Есть места</div>
+                                <div class="date-price">85 000 ₽</div>
+                            </div>
+                            
+                            <div class="date-card featured">
+                                <div class="date-period">
+                                    <span class="date-month">Июль 2026</span>
+                                    <span class="date-days">13.07 – 25.07</span>
+                                </div>
+                                <div class="date-status hot">Лучшая погода</div>
+                                <div class="date-price">89 000 ₽</div>
+                            </div>
+                            
+                            <div class="date-card featured">
+                                <div class="date-period">
+                                    <span class="date-month">Июль–Август 2026</span>
+                                    <span class="date-days">27.07 – 08.08</span>
+                                </div>
+                                <div class="date-status hot">Лучшая погода</div>
+                                <div class="date-price">89 000 ₽</div>
+                            </div>
+                            
+                            <div class="date-card featured">
+                                <div class="date-period">
+                                    <span class="date-month">Август 2026</span>
+                                    <span class="date-days">10.08 – 22.08</span>
+                                </div>
+                                <div class="date-status hot">Лучшая погода</div>
+                                <div class="date-price">89 000 ₽</div>
+                            </div>
+                            
+                            <div class="date-card">
+                                <div class="date-period">
+                                    <span class="date-month">Август–Сентябрь 2026</span>
+                                    <span class="date-days">24.08 – 05.09</span>
+                                </div>
+                                <div class="date-status available">Есть места</div>
+                                <div class="date-price">85 000 ₽</div>
+                            </div>
+                        </div>
+                        
+                        <div class="season-guide">
+                            <h4>Когда лучше ехать?</h4>
+                            <div class="season-list">
+                                <div class="season-item">
+                                    <span class="season-name">Июнь</span>
+                                    <div class="season-rating">
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <span class="season-note">Снег, прохладно</span>
+                                </div>
+                                <div class="season-item best">
+                                    <span class="season-name">Июль</span>
+                                    <div class="season-rating">
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                    </div>
+                                    <span class="season-note">Оптимально</span>
+                                </div>
+                                <div class="season-item best">
+                                    <span class="season-name">Август</span>
+                                    <div class="season-rating">
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                    </div>
+                                    <span class="season-note">Тепло и сухо</span>
+                                </div>
+                                <div class="season-item">
+                                    <span class="season-name">Сентябрь</span>
+                                    <div class="season-rating">
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star active"></span>
+                                        <span class="star"></span>
+                                        <span class="star"></span>
+                                    </div>
+                                    <span class="season-note">Дожди, краски осени</span>
+                                </div>
+                            </div>
+                            <p class="season-disclaimer">
+                                Предсказать погоду невозможно из-за близости двух морей и горной гряды.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Вкладка: Что включено -->
+                <div class="tour-tab-content" id="tab-included">
+                    <div class="included-grid">
+                        <div class="included-section">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                Включено в стоимость
+                            </h3>
+                            <ul class="included-list yes">
+                                <li>Работа инструктора на всём маршруте</li>
+                                <li>Все переезды по программе</li>
+                                <li>Сплав на рафтах по реке Быстрая</li>
+                                <li>Проживание на базе в Козыревске</li>
+                                <li>Трёхразовое питание на маршруте</li>
+                                <li>Общественное снаряжение</li>
+                                <li>Походная баня на берегу океана</li>
+                                <li>Групповая аптечка</li>
+                                <li>Спутниковая связь</li>
+                                <li>Разрешения на посещение парка</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="included-section">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                                Не включено
+                            </h3>
+                            <ul class="included-list no">
+                                <li>Авиабилеты до Камчатки и обратно</li>
+                                <li>Личное снаряжение</li>
+                                <li>Страховка</li>
+                                <li>Питание в кафе во время переездов</li>
+                                <li>Алкоголь</li>
+                                <li>Сувениры и личные расходы</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="included-section full">
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                </svg>
+                                Что взять с собой
+                            </h3>
+                            <div class="equipment-grid">
+                                <div class="equipment-category">
+                                    <h4>Одежда</h4>
+                                    <ul>
+                                        <li>Треккинговые ботинки</li>
+                                        <li>Мембранная куртка</li>
+                                        <li>Флисовая кофта</li>
+                                        <li>Термобельё</li>
+                                        <li>Непромокаемые штаны</li>
+                                    </ul>
+                                </div>
+                                <div class="equipment-category">
+                                    <h4>Снаряжение</h4>
+                                    <ul>
+                                        <li>Рюкзак 60–80 л</li>
+                                        <li>Спальник (комфорт 0°C)</li>
+                                        <li>Коврик</li>
+                                        <li>Треккинговые палки</li>
+                                        <li>Налобный фонарик</li>
+                                    </ul>
+                                </div>
+                                <div class="equipment-category">
+                                    <h4>Прочее</h4>
+                                    <ul>
+                                        <li>Солнцезащитные очки</li>
+                                        <li>Крем от солнца SPF 50</li>
+                                        <li>Средство от комаров</li>
+                                        <li>Личная аптечка</li>
+                                        <li>Документы в гермопакете</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- ПРОГРАММА ПО ДНЯМ                                               -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="program" id="program">
+        <div class="container">
+            
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Подробности</span>
+                <h2 class="section-title">Программа по дням</h2>
+            </div>
+            
+            <div class="program-timeline">
+                
+                <!-- День 1 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">1</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Встреча группы и переезд</h4>
+                        <p class="day-route">Елизово → Река Быстрая</p>
+                        <p class="day-description">
+                            Встреча группы в посёлке Елизово в 9:00. Переезд на автобусе к реке Быстрой. 
+                            По дороге остановка на обед. Вечером обустройство лагеря и инструктаж по безопасности.
+                        </p>
+                        <div class="day-stats">
+                            <span>Переезд на автобусе</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 2 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">2</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Сплав по реке Быстрая</h4>
+                        <p class="day-route">Река Быстрая → Козыревск</p>
+                        <p class="day-description">
+                            Сплав на рафтах с порогами до 4 категории сложности. Рыбалка. 
+                            Вечером переезд в Козыревск, размещение на базе, баня.
+                        </p>
+                        <div class="day-stats">
+                            <span>Сплав на рафтах</span>
+                            <span>2 ч на машине</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 3 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">3</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Мёртвый лес и лавовые поля</h4>
+                        <p class="day-route">Козыревск → Стоянка Клешня (1400 м)</p>
+                        <p class="day-description">
+                            Переезд на вездеходе. Посещение «Мёртвого леса», конуса извержения 1975 года. 
+                            Марсианские пейзажи, горячая земля.
+                        </p>
+                        <div class="day-stats">
+                            <span>70 км на машине</span>
+                            <span>5 км пешком</span>
+                            <span>+200 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 4 -->
+                <div class="program-day highlight animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">4</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Восхождение на Плоский Толбачик</h4>
+                        <p class="day-route">Вершина 3080 м</p>
+                        <p class="day-description">
+                            Главное событие похода. Восхождение на вулкан, осмотр 400-метрового кратера. 
+                            Панорама на Ключевскую сопку.
+                        </p>
+                        <div class="day-stats">
+                            <span>4 км с рюкзаком</span>
+                            <span>20 км налегке</span>
+                            <span>±1350 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 5 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">5</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Переход до стоянки Толуд</h4>
+                        <p class="day-route">Через камчатскую тундру</p>
+                        <p class="day-description">
+                            Переход по тундре к базе вулканологов. Долина между вулканами Толбачик и Большая Удина. 
+                            Встречи с медведями, лисицами, сурками.
+                        </p>
+                        <div class="day-stats">
+                            <span>16 км</span>
+                            <span>−500 м</span>
+                            <span>+300 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 6 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">6</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">По долине вулканов</h4>
+                        <p class="day-route">К снежникам</p>
+                        <p class="day-description">
+                            Путь по долине, зажатой вулканами со снежными шапками. Лагерь под снежниками с чистыми ручьями.
+                        </p>
+                        <div class="day-stats">
+                            <span>12 км</span>
+                            <span>+200 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 7 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">7</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Перевал Толбачинский и Марсово поле</h4>
+                        <p class="day-route">Через кратер Юпитер</p>
+                        <p class="day-description">
+                            Переход через перевал (1470 м). Вид на вулканы Камень и Безымянный. 
+                            Ночёвка с панорамой на всю Ключевскую группу.
+                        </p>
+                        <div class="day-stats">
+                            <span>14 км</span>
+                            <span>+200 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 8 -->
+                <div class="program-day rest animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">8</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Днёвка</h4>
+                        <p class="day-route">День отдыха</p>
+                        <p class="day-description">
+                            Отдых в лагере с завораживающими видами. Опционально — прогулка по склонам вулканов.
+                        </p>
+                        <div class="day-stats">
+                            <span>Отдых</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 9 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">9</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Гора Поленница и каньон Студёной</h4>
+                        <p class="day-route">До Поляны эдельвейсов</p>
+                        <p class="day-description">
+                            Переход через перевал Безымянный. Памятник природы — гора Поленница. 
+                            Каньон реки Студёной. Ночёвка на поляне с ягодами.
+                        </p>
+                        <div class="day-stats">
+                            <span>21 км</span>
+                            <span>±150 м</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 10 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">10</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Запасной день / Бараньи скалы</h4>
+                        <p class="day-route">Радиальный выход</p>
+                        <p class="day-description">
+                            Резерв на непогоду или прогулка до Бараньих скал по руслу реки через каньон.
+                        </p>
+                        <div class="day-stats">
+                            <span>Резервный день</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 11 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">11</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Выброска в Козыревск</h4>
+                        <p class="day-route">Прощание с вулканами</p>
+                        <p class="day-description">
+                            Переход до стоянки «Столик». Обед у озера с отражением вулканов. 
+                            Переезд в Козыревск, баня.
+                        </p>
+                        <div class="day-stats">
+                            <span>10 км пешком</span>
+                            <span>40 км на машине</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 12 -->
+                <div class="program-day animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">12</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Тихий океан</h4>
+                        <p class="day-route">Халактырский пляж</p>
+                        <p class="day-description">
+                            Переезд к океану. Рыбный рынок, прощальный ужин у костра. 
+                            Походная баня, купание в Тихом океане.
+                        </p>
+                        <div class="day-stats">
+                            <span>Океан</span>
+                            <span>Баня</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- День 13 -->
+                <div class="program-day end animate-on-scroll">
+                    <div class="day-marker">
+                        <span class="day-number">13</span>
+                    </div>
+                    <div class="day-content">
+                        <h4 class="day-title">Завершение программы</h4>
+                        <p class="day-route">Возвращение в Елизово</p>
+                        <p class="day-description">
+                            Возвращение в Елизово к 13:30. Прощание с группой. Вылет домой.
+                        </p>
+                        <div class="day-stats">
+                            <span>Вылет</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- ГАЛЕРЕЯ                                                         -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Фотографии</span>
+                <h2 class="section-title">Галерея</h2>
+            </div>
+            
+            <!-- 🔧 ИЗМЕНИ: Фотографии -->
             <div class="gallery-grid">
-                
-                <!-- 🔧 ИЗМЕНИ: Фотографии галереи -->
-                <!-- Можешь добавить больше элементов, копируя блок ниже -->
-                
-                <!-- Фото 1 -->
-                <div class="gallery-item animate-on-scroll">
-                    <img src="images/photo1.jpg" alt="Описание фото 1" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <p class="gallery-caption">Подпись к фото 1</p>
-                    </div>
+                <div class="gallery-item large animate-on-scroll">
+                    <img src="images/gallery/photo-1.jpg" alt="Вулкан Толбачик" loading="lazy">
                 </div>
-                
-                <!-- Фото 2 -->
                 <div class="gallery-item animate-on-scroll">
-                    <img src="images/photo2.jpg" alt="Описание фото 2" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <p class="gallery-caption">Подпись к фото 2</p>
-                    </div>
+                    <img src="images/gallery/photo-2.jpg" alt="Лавовые поля" loading="lazy">
                 </div>
-                
-                <!-- Фото 3 -->
                 <div class="gallery-item animate-on-scroll">
-                    <img src="images/photo3.jpg" alt="Описание фото 3" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <p class="gallery-caption">Подпись к фото 3</p>
-                    </div>
+                    <img src="images/gallery/photo-3.jpg" alt="Медведь" loading="lazy">
                 </div>
-                
-                <!-- Фото 4 -->
                 <div class="gallery-item animate-on-scroll">
-                    <img src="images/photo4.jpg" alt="Описание фото 4" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <p class="gallery-caption">Подпись к фото 4</p>
-                    </div>
+                    <img src="images/gallery/photo-4.jpg" alt="Ключевская сопка" loading="lazy">
                 </div>
-                
-                <!-- 
-                🔧 ЧТОБЫ ДОБАВИТЬ ЕЩЁ ФОТО:
-                1. Скопируй блок ниже
-                2. Измени photo5.jpg на имя твоего файла
-                3. Измени описание и подпись
-                
                 <div class="gallery-item animate-on-scroll">
-                    <img src="images/photo5.jpg" alt="Описание фото 5" class="gallery-image">
-                    <div class="gallery-overlay">
-                        <p class="gallery-caption">Подпись к фото 5</p>
-                    </div>
+                    <img src="images/gallery/photo-5.jpg" alt="Сплав" loading="lazy">
                 </div>
-                -->
-                
+                <div class="gallery-item large animate-on-scroll">
+                    <img src="images/gallery/photo-6.jpg" alt="Тихий океан" loading="lazy">
+                </div>
             </div>
+            
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- РАЗДЕЛ "КОНТАКТЫ" (Contact Section)                             -->
+    <!-- FAQ                                                             -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <section id="contact" class="contact">
+    <section class="faq" id="faq">
         <div class="container">
             
-            <!-- 🔧 ИЗМЕНИ: Заголовок контактов -->
-            <h2 class="section-title animate-on-scroll">Связаться с нами</h2>
-            
-            <div class="contact-grid">
-                
-                <!-- Левая часть - информация -->
-                <div class="contact-info animate-on-scroll">
-                    
-                    <!-- 🔧 ИЗМЕНИ: Контактную информацию -->
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>твоя-почта@example.com</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📱</div>
-                        <div class="contact-details">
-                            <h3>Телефон</h3>
-                            <p>+7 (XXX) XXX-XX-XX</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div class="contact-details">
-                            <h3>Адрес</h3>
-                            <p>Город, улица, дом</p>
-                        </div>
-                    </div>
-                    
-                    <!-- 🔧 ИЗМЕНИ: Социальные сети -->
-                    <div class="social-links">
-                        <a href="https://vk.com/ТВОЙ_ПРОФИЛЬ" class="social-link" target="_blank" rel="noopener noreferrer">VK</a>
-                        <a href="https://t.me/ТВОЙ_ПРОФИЛЬ" class="social-link" target="_blank" rel="noopener noreferrer">Telegram</a>
-                        <a href="https://www.youtube.com/@ТВОЙ_КАНАЛ" class="social-link" target="_blank" rel="noopener noreferrer">YouTube</a>
-                    </div>
-                </div>
-                
-                <!-- Правая часть - форма -->
-                <div class="contact-form-wrapper animate-on-scroll">
-                    <form class="contact-form" id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Ваше имя</label>
-                            <input type="text" id="name" name="name" required placeholder="Введите имя">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required placeholder="Введите email">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Сообщение</label>
-                            <textarea id="message" name="message" required placeholder="Введите сообщение" rows="5"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-full">Отправить сообщение</button>
-                    </form>
-                </div>
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Частые вопросы</h2>
             </div>
+            
+            <div class="faq-list">
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Нужен ли опыт походов?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Желателен опыт горных походов. Вы должны понимать, что такое пройти 
+                            15–20 км в день с рюкзаком по пересечённой местности в любую погоду.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Какая физическая подготовка нужна?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Необходима хорошая физическая форма. Рекомендуем за 2–3 месяца до похода 
+                            начать регулярные кардиотренировки: бег, велосипед, длительные пешие прогулки.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Опасны ли медведи?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            При соблюдении правил безопасности встречи с медведями будут только приятным 
+                            впечатлением. Инструктор проведёт подробный инструктаж и имеет средства защиты.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Как добраться до Камчатки?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Только самолётом. Рейсы из Москвы, Владивостока, Новосибирска. 
+                            Время полёта из Москвы — около 9 часов. Бронируйте билеты заранее.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Нужна ли страховка?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Настоятельно рекомендуем оформить страховку с покрытием активного отдыха 
+                            и эвакуации. Эвакуация вертолётом с Камчатки стоит очень дорого.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question">
+                        <span>Можно ли участвовать с 16 лет?</span>
+                        <span class="faq-icon"></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>
+                            Да, но только в сопровождении взрослого. Потребуется письменное согласие 
+                            родителей. Подросток должен иметь походный опыт.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
     </section>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <!-- ПОДВАЛ САЙТА (Footer)                                           -->
+    <!-- КОНТАКТЫ (без формы)                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="contacts" id="contacts">
+        <div class="container">
+            
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Связаться</span>
+                <h2 class="section-title">Контакты</h2>
+                <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+            </div>
+            
+            <div class="contacts-grid animate-on-scroll">
+                
+                <!-- 🔧 ИЗМЕНИ: Контакты -->
+                <a href="tel:+79001234567" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Телефон</span>
+                        <span class="contact-value">+7 (900) 123-45-67</span>
+                    </div>
+                </a>
+                
+                <a href="mailto:info@kamchatka-tours.ru" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">info@kamchatka-tours.ru</span>
+                    </div>
+                </a>
+                
+                <a href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 5L2 12.5l7 1M21 5l-2.5 15L9 13.5M21 5L9 13.5m0 0V19l3.249-3.277"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Telegram</span>
+                        <span class="contact-value">@your_telegram</span>
+                    </div>
+                </a>
+                
+                <a href="https://wa.me/79001234567" target="_blank" rel="noopener" class="contact-card">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">WhatsApp</span>
+                        <span class="contact-value">+7 (900) 123-45-67</span>
+                    </div>
+                </a>
+                
+            </div>
+            
+            <div class="contacts-social animate-on-scroll">
+                <span>Мы в соцсетях:</span>
+                <div class="social-links">
+                    <a href="https://vk.com/YOUR_VK" target="_blank" rel="noopener" class="social-link">VK</a>
+                    <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" rel="noopener" class="social-link">YouTube</a>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- FOOTER                                                          -->
     <!-- ═══════════════════════════════════════════════════════════════ -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                
-                <!-- 🔧 ИЗМЕНИ: Текст копирайта -->
-                <p class="copyright">
-                    © 2024 Название твоего проекта. Все права защищены.
-                </p>
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" alt="Логотип" class="logo-img">
+                        <span class="logo-name">КАМЧАТКА</span>
+                    </a>
+                </div>
                 
                 <nav class="footer-nav">
-                    <a href="#home">Главная</a>
-                    <a href="#about">О нас</a>
+                    <a href="#tour">Тур</a>
+                    <a href="#program">Программа</a>
                     <a href="#gallery">Галерея</a>
-                    <a href="#contact">Контакты</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#contacts">Контакты</a>
                 </nav>
+                
+                <!-- 🔧 ИЗМЕНИ: Год и название -->
+                <p class="copyright">© 2024 Камчатка. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Модальное окно для просмотра фото (не трогай) -->
+    <!-- Модальное окно для изображений -->
     <div class="modal" id="imageModal">
-        <button class="modal-close" aria-label="Закрыть">&times;</button>
+        <button class="modal-close" aria-label="Закрыть">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
         <img src="" alt="" class="modal-image" id="modalImage">
     </div>
 
-    <!-- Подключение скриптов -->
+    <!-- Кнопка "Наверх" -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>
