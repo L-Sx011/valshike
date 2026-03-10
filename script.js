@@ -1,76 +1,168 @@
 // ═══════════════════════════════════════════════════════════════════════
-// СКРИПТЫ ДЛЯ САЙТА
-// Этот файл отвечает за анимации и интерактивность
+// ОСНОВНОЙ JAVASCRIPT
 // ═══════════════════════════════════════════════════════════════════════
 
-// Ждём полной загрузки страницы
 document.addEventListener('DOMContentLoaded', function() {
     
     // ═══════════════════════════════════════════════════════════════════
-    // 1. МОБИЛЬНОЕ МЕНЮ
+    // 1. ПЕРЕКЛЮЧАТЕЛЬ ТЕМЫ
     // ═══════════════════════════════════════════════════════════════════
     
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('.nav');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
     
-    // Открытие/закрытие меню при клике на кнопку
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
+    // Проверяем сохранённую тему или системные настройки
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (savedTheme) {
+        html.setAttribute('data-theme', savedTheme);
+    } else if (prefersDark) {
+        html.setAttribute('data-theme', 'dark');
+    }
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     }
     
-    // Закрытие меню при клике на ссылку
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function() {
-            mobileMenuBtn.classList.remove('active');
-            nav.classList.remove('active');
+    // ═══════════════════════════════════════════════════════════════════
+    // 2. МОБИЛЬНОЕ МЕНЮ
+    // ═══════════════════════════════════════════════════════════════════
+    
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    if (burger && nav) {
+        burger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
         });
-    });
+        
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                burger.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
     
     // ═══════════════════════════════════════════════════════════════════
-    // 2. АНИМАЦИИ ПРИ СКРОЛЛЕ
+    // 3. ШАПКА ПРИ СКРОЛЛЕ
+    // ═══════════════════════════════════════════════════════════════════
+    
+    const header = document.getElementById('header');
+    const scrollTopBtn = document.getElementById('scrollTop');
+    
+    function handleScroll() {
+        const scrollY = window.scrollY;
+        
+        if (header) {
+            header.classList.toggle('scrolled', scrollY > 50);
+        }
+        
+        if (scrollTopBtn) {
+            scrollTopBtn.classList.toggle('visible', scrollY > 400);
+        }
+    }
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════
+    // 4. АНИМАЦИИ ПРИ СКРОЛЛЕ
     // ═══════════════════════════════════════════════════════════════════
     
     const animatedElements = document.querySelectorAll('.animate-on-scroll');
     
-    // Функция проверки видимости элемента
     function checkVisibility() {
-        animatedElements.forEach(function(element) {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            // Если элемент виден на 80% высоты окна
-            if (elementTop < windowHeight * 0.85) {
-                element.classList.add('visible');
+        const windowHeight = window.innerHeight;
+        
+        animatedElements.forEach(function(el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight * 0.88) {
+                el.classList.add('visible');
             }
         });
     }
     
-    // Проверяем при загрузке
+    window.addEventListener('scroll', checkVisibility);
     checkVisibility();
     
-    // Проверяем при скролле
-    window.addEventListener('scroll', checkVisibility);
-    
     // ═══════════════════════════════════════════════════════════════════
-    // 3. ИЗМЕНЕНИЕ ШАПКИ ПРИ СКРОЛЛЕ
+    // 5. ПЛАВНЫЙ СКРОЛЛ
     // ═══════════════════════════════════════════════════════════════════
     
-    const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 1px 2px rgba(0, 0, 0, 0.05)';
-        }
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const target = document.querySelector(targetId);
+            if (target) {
+                const headerH = header ? header.offsetHeight : 0;
+                const targetPos = target.offsetTop - headerH;
+                window.scrollTo({ top: targetPos, behavior: 'smooth' });
+            }
+        });
     });
     
     // ═══════════════════════════════════════════════════════════════════
-    // 4. МОДАЛЬНОЕ ОКНО ДЛЯ ГАЛЕРЕИ
+    // 6. ВКЛАДКИ ТУРА
+    // ═══════════════════════════════════════════════════════════════════
+    
+    const tourTabs = document.querySelectorAll('.tour-tab');
+    const tourContents = document.querySelectorAll('.tour-tab-content');
+    
+    tourTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-tab');
+            
+            tourTabs.forEach(t => t.classList.remove('active'));
+            tourContents.forEach(c => c.classList.remove('active'));
+            
+            this.classList.add('active');
+            document.getElementById('tab-' + targetTab).classList.add('active');
+        });
+    });
+    
+    // ═══════════════════════════════════════════════════════════════════
+    // 7. FAQ АККОРДЕОН
+    // ═══════════════════════════════════════════════════════════════════
+    
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(function(item) {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', function() {
+            const isActive = item.classList.contains('active');
+            
+            faqItems.forEach(i => i.classList.remove('active'));
+            
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // ═══════════════════════════════════════════════════════════════════
+    // 8. ГАЛЕРЕЯ (МОДАЛЬНОЕ ОКНО)
     // ═══════════════════════════════════════════════════════════════════
     
     const modal = document.getElementById('imageModal');
@@ -78,128 +170,39 @@ document.addEventListener('DOMContentLoaded', function() {
     const modalClose = document.querySelector('.modal-close');
     const galleryItems = document.querySelectorAll('.gallery-item');
     
-    // Открытие модального окна при клике на фото
     galleryItems.forEach(function(item) {
         item.addEventListener('click', function() {
-            const img = this.querySelector('.gallery-image');
-            modalImage.src = img.src;
-            modalImage.alt = img.alt;
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Блокируем скролл
+            const img = this.querySelector('img');
+            if (modal && modalImage) {
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
         });
     });
     
-    // Закрытие по кнопке
+    function closeModal() {
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
     if (modalClose) {
         modalClose.addEventListener('click', closeModal);
     }
     
-    // Закрытие по клику вне картинки
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
-    });
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+    }
     
-    // Закрытие по Escape
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
             closeModal();
         }
     });
-    
-    function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Возвращаем скролл
-    }
-    
-    // ═══════════════════════════════════════════════════════════════════
-    // 5. ОБРАБОТКА ФОРМЫ
-    // ═══════════════════════════════════════════════════════════════════
-    
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Предотвращаем отправку
-            
-            // Получаем данные формы
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Простая валидация
-            if (!name || !email || !message) {
-                alert('Пожалуйста, заполните все поля');
-                return;
-            }
-            
-            // Проверка email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Пожалуйста, введите корректный email');
-                return;
-            }
-            
-            // ═══════════════════════════════════════════════════════════
-            // 🔧 ВАЖНО: Форма сейчас просто показывает сообщение
-            // Чтобы получать письма, нужно настроить сервис (см. раздел ниже)
-            // ═══════════════════════════════════════════════════════════
-            
-            alert('Спасибо за сообщение! Мы свяжемся с вами в ближайшее время.');
-            contactForm.reset(); // Очищаем форму
-            
-            // Вместо alert можно показать красивое уведомление
-            // или перенаправить на страницу благодарности
-        });
-    }
-    
-    // ═══════════════════════════════════════════════════════════════════
-    // 6. ПЛАВНЫЙ СКРОЛЛ К ЯКОРЯМ
-    // ═══════════════════════════════════════════════════════════════════
-    
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // ═══════════════════════════════════════════════════════════════════
-    // 7. ЭФФЕКТ ПАРАЛЛАКСА ДЛЯ HERO (опционально)
-    // ═══════════════════════════════════════════════════════════════════
-    
-    const hero = document.querySelector('.hero');
-    
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-            }
-        });
-    }
 
 });
-
-// ═══════════════════════════════════════════════════════════════════════
-// ДОПОЛНИТЕЛЬНО: Защита от XSS атак
-// ═══════════════════════════════════════════════════════════════════════
-
-// Функция для безопасного вывода текста
-function escapeHTML(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-}
